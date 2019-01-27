@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import socketOpen from './socketOpenReducer';
+import socketOpen  from './socketsReducer';
 
 const rootReducer = combineReducers({
   socketOpen

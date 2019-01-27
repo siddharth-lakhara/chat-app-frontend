@@ -1,4 +1,4 @@
-import  {socketOpen} from './redux/actions';
+import  {socketOpen, socketClose} from './redux/actions';
 
 const setupSockets = (dispatch) =>{
   try {
@@ -8,9 +8,9 @@ const setupSockets = (dispatch) =>{
     }
 
     socket.onclose = () => {
-      console.log('server disconnected');
+      dispatch(socketClose());
     }
-    
+
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       console.log('data', data);

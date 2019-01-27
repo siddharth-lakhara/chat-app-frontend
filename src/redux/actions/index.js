@@ -1,4 +1,5 @@
-import socketOpen from './socketOpen';
+import { socketOpen, socketClose } from './sockets';
 export {
-  socketOpen 
+  socketOpen,
+  socketClose,
 };
