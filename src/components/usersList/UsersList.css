@@ -1,0 +1,25 @@
+.chat-usersList {
+  width: 30vw;
+  background: #292E35;
+  color: white;
+}
+
+.usersList-item {
+  font-size: 0.8rem;
+  margin: 0.7rem;
+  margin-right: 0;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  .chat-usersList {
+    width: 30vw;
+  }
+
+  .usersList-item  {
+    font-size: 1rem;
+    margin: 1rem;
+  }
+};
