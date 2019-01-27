@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import socketOpen  from './socketsReducer';
-import { usersListReducer} from './usersListReducer';
+import { usersReducer} from './usersReducer';
 
 const rootReducer = combineReducers({
   sockets: socketOpen,
-  users: usersListReducer,
+  users: usersReducer,
 })
 
 export default rootReducer;
