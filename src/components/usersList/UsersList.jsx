@@ -1,19 +1,36 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux';
+import { changeSelectedUser } from '../../redux/actions'
+import PropTypes from 'prop-types';
 import './UsersList.css';
 
-const mockUsersList = ['siddharth', 'Swayam', 'Titas'];
-
-export default class UsersList extends Component {
-  render() {
-    const usersList = mockUsersList.map((userName)=>{
-      return (
-        <div className="usersList-item" key={`${userName}`}>{userName.toUpperCase()}</div>
-      );
-    });
+const UsersList = ({ usersList, selectedUser, changeSelectedUser}) => {
+  const usersListWrapper = usersList.map((userName) => {
+    const selected = userName === selectedUser;
     return (
-      <div className="chat-usersList">
-        {usersList}
-      </div>
-    )
-  }
+      <div className={`usersList-item ${selected ? 'selected' : ''}`} key={`${userName}`} onClick={() => { changeSelectedUser(userName) }}>{userName.toUpperCase()}</div>
+    );
+  });
+  return (
+    <div className="chat-usersList">
+      {usersListWrapper}
+    </div>
+  )
 }
+
+UsersList.propTypes = {
+  usersList: PropTypes.array.isRequired,
+  selectedUser: PropTypes.string.isRequired,
+  changeSelectedUser: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = ({users}) => ({
+  ...users,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  changeSelectedUser: (selectedUser) => dispatch(changeSelectedUser(selectedUser)),
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsersList);
