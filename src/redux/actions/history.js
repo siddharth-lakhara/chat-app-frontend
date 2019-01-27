@@ -1,8 +1,10 @@
 import types from "../types";
 
-export const sendMsg = () => ({
-  type: types.SEND_MSG,
-});
+export const updateHistory = () => {
+  return {
+    type: types.UPDATE_HISTORY,
+  };
+}
 
 export const updateText = (e) => {
   const {value} = e.target;
