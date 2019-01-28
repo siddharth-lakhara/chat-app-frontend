@@ -1,6 +1,8 @@
 import types from '../types';
 
 export const usersReducer = (state = {
+  userLoggedIn: false,
+  loginError: '',
   usersList: ['allen', 'swayam', 'titas'],
   currentUser: 'siddharth',
   selectedUser: 'swayam',
@@ -47,6 +49,18 @@ export const usersReducer = (state = {
           }
         }
       }
+    case types.USER_LOGIN_SUCCESS:
+      return {
+        ...state,
+        userLoggedIn: true,
+        currentUser: payload.userName,
+        loginError: '',
+      }
+    case types.USER_LOGIN_FAIL: 
+      return {
+        ...state,
+        loginError: `user name ${payload.userName} is already taken`,
+      };
     default:
       return state;
   }

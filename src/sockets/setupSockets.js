@@ -1,4 +1,5 @@
-import  {socketOpen, socketClose} from './redux/actions';
+import  {socketOpen, socketClose} from '../redux/actions';
+import serverActions from './serverActions';
 
 const setupSockets = (dispatch) =>{
   try {
@@ -13,7 +14,12 @@ const setupSockets = (dispatch) =>{
 
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      console.log('data', data);
+      const {type, ...rest} = data;
+      console.log(type);
+      const action = serverActions[type];
+      if (action) {
+        action(dispatch, rest);
+      }
     }
 
     return socket;

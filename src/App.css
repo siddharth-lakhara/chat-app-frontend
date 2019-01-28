@@ -3,17 +3,97 @@
 }
 
 .App-header {
-  background-color: #407BBE;
+  background-color: #285178;
   height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 3rem;
+  font-family: Impact;
   color: white;
 }
 
 .App-chat {
   height: 80vh;
   display: flex;
+}
+
+.App-chat.login {
+  align-items: center;
+  justify-content: center;
+  background: #5DA7D1;
+}
+
+.login-wrapper {
+  /* width: 30vw; */
+  /* height: 40vh; */
+  /* background: #285178; */
+  /* box-shadow: 0 0 0 0.1px; */
+
+  display: flex;
+  flex-direction: column;
+}
+
+.login-userName {
+  font-size: 1rem;
+  color: white;
+  font-family: Helvetica;
+}
+
+.login-userName-input {
+  border: none;
+  background: white;
+  width: 200px;
+  height: 30px;
+  border: 1px solid white;
+  text-align: center;
+}
+
+.login-userName-input:focus {
+  outline: none;
+}
+
+.login-userName-input::placeholder {
+  opacity: 0.8;
+}
+
+.login-button {
+  border: 1px solid white;
+  background: none;
+  color: white;
+  font-weight: bold;
+  height: 30px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.login-button:focus {
+  outline: none;
+}
+
+.login-error {
+  color: tomato;
+  background: #FCECE9;
+  margin-bottom: 10px;
+  width: 200px;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 600px) {
+  .login-userName-input {
+    width: 40vw;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .login-button {
+    font-size: 1.5rem;
+  }
+
+  .login-error {
+    font-size: 1.1rem;
+    width: 40vw;
+  }
+
 }
