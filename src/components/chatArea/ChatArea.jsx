@@ -1,7 +1,7 @@
 import React from 'react'
 import PropType from 'prop-types';
 import { connect } from 'react-redux'
-import { updateHistory, updateText} from '../../redux/actions';
+import { updateHistory, updateText, sendMsg} from '../../redux/actions';
 import ChatHistory from './ChatHistory';
 import './ChatArea.css';
 
@@ -22,7 +22,7 @@ const ChatArea = ({ selectedUser, history, updateText, sendMsg }) => {
         />
         <button 
           className="chat-sendMsg" 
-          onClick={() => {sendMsg();}} 
+          onClick={() => { sendMsg(selectedUser, currentText);}} 
           disabled={currentText.length===0}
         >
           SEND
@@ -44,13 +44,11 @@ const mapStateToProps = ({users}) => ({
   history: users.history[users.selectedUser],
 });
 
-const sendMsg = () => {};
-
 const mapDispatchToProps = (dispatch) => ({
   updateText: (e) => dispatch(updateText(e)),
-  sendMsg: (to, updateText) => {
+  sendMsg: (selectedUser, currentText) => {
     dispatch(updateHistory());
-    // dispatch(sendMsg(from, to, updateText));
+    dispatch(sendMsg(selectedUser, currentText));
   },
 });
 

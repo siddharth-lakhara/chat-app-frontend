@@ -6,6 +6,7 @@ import createSagaMiddleWare from 'redux-saga';
 import App from './App';
 import rootReducer from './redux/reducers';
 import setupSockets from './setupSockets';
+import sendMsgSaga from "./sagas/sendMsgSaga";
 import './index.css';
 
 const render = () => {
@@ -16,7 +17,14 @@ const render = () => {
     rootReducer,
     composeEnhancers(applyMiddleware(sagaMiddleWare)),
   );
-  setupSockets(store.dispatch);
+  
+  const socket = setupSockets(store.dispatch);
+  sagaMiddleWare.run(sendMsgSaga, {
+    socket,
+    dispatch: store.dispatch,
+    getState: store.getState,
+  });
+
   ReactDOM.render(
     <Provider store={store}>
       <App />

@@ -15,6 +15,8 @@ const setupSockets = (dispatch) =>{
       const data = JSON.parse(event.data);
       console.log('data', data);
     }
+
+    return socket;
   } catch(e) {
     console.error('caught error');
   }

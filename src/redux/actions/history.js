@@ -13,3 +13,13 @@ export const updateText = (e) => {
   payload: value,
   };
 };
+
+export const sendMsg = (selectedUser, currentText) => {
+  return {
+    type: types.SEND_MSG,
+    payload: {
+      selectedUser,
+      currentText
+    },
+  };
+}
