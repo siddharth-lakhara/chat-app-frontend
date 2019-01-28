@@ -1,12 +1,15 @@
-import constants from '../sagas/backendConstants';
-import {userLoginSuccess, userLoginFail} from '../redux/actions';
+import {userLoginSuccess, userLoginFail, usersUpdate} from '../redux/actions';
+import types from '../redux/types';
 
 const serverActions = {
-  [constants.USER_LOGIN_SUCCESS]: (dispatch, {userName}) => {
+  [types.USER_LOGIN_SUCCESS]: (dispatch, {userName}) => {
     dispatch(userLoginSuccess(userName));
   },
-  [constants.USER_LOGIN_FAIL]: (dispatch, {userName}) => {
+  [types.USER_LOGIN_FAIL]: (dispatch, {userName}) => {
     dispatch(userLoginFail(userName));
+  },
+  [types.USERS_UPDATE]: (dispatch, {usersList}) => {
+    dispatch(usersUpdate(usersList));
   }
 };
 

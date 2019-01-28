@@ -23,3 +23,10 @@ export const sendMsg = (selectedUser, currentText) => {
     },
   };
 }
+
+export const usersUpdate = (newUsersList) => {
+  return {
+    type: types.USERS_UPDATE,
+    payload: newUsersList
+  }
+}

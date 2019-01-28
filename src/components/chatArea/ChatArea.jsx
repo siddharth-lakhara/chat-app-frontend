@@ -6,9 +6,10 @@ import ChatHistory from './ChatHistory';
 import './ChatArea.css';
 
 const ChatArea = ({ selectedUser, history, updateText, sendMsg }) => {
-  const {messages, currentText} = history;
+  const messages = (history && history.messages) || [];
+  const currentText = (history && history.currentText) || '';
   const userNameArray = selectedUser.toLowerCase().split('');
-  const displayName = userNameArray[0].toUpperCase() + userNameArray.splice(1).join('');
+  const displayName = userNameArray.length && (userNameArray[0].toUpperCase() + userNameArray.splice(1).join('')) || '';
   return (
     <div className="chat-chatArea">
       <div className="chat-userName">{displayName}</div>
@@ -22,7 +23,7 @@ const ChatArea = ({ selectedUser, history, updateText, sendMsg }) => {
         />
         <button 
           className="chat-sendMsg" 
-          onClick={() => { sendMsg(selectedUser, currentText);}} 
+          onClick={() => { selectedUser && sendMsg(selectedUser, currentText);}} 
           disabled={currentText.length===0}
         >
           SEND

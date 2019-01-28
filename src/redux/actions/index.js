@@ -1,6 +1,6 @@
 import { socketOpen, socketClose } from './sockets';
 import { usersList, changeSelectedUser, userLogin, userLoginSuccess, userLoginFail } from './usersList';
-import { updateHistory, updateText, sendMsg} from './history';
+import { updateHistory, updateText, sendMsg, usersUpdate} from './history';
 
 export {
   socketOpen,
@@ -12,5 +12,6 @@ export {
   userLoginFail,
   updateHistory,
   updateText,
-  sendMsg
+  sendMsg,
+  usersUpdate
 };

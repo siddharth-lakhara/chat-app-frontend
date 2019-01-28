@@ -14,8 +14,30 @@ export const usersReducer = (state = {
   },
 }, {type, payload}) => {
   switch (type) {
-    case types.USERS_UPDATE: 
-      return {...state, usersList: payload};
+    case types.USERS_UPDATE:
+      const newUsersList = payload.filter((userName) => (!(userName === state.currentUser)));
+      const {history} = state;
+      Object.keys(history).map((userName) => {
+        // if user went offline
+        if (newUsersList.indexOf(userName) === -1) {
+          delete history[userName];
+          if (userName === state.selectedUser) {
+            state.selectedUser = '';
+          }
+        }
+      });
+      newUsersList.forEach(userName => {
+        if (!history.hasOwnProperty(userName)) {
+          history[userName] = {
+            messages: [],
+            currentText: '',
+          };
+        }
+      });
+      return {
+        ...state,
+        usersList: newUsersList,
+      };
     case types.USER_CHANGE: 
       return {...state, selectedUser: payload};
     case types.TEXT_UPDATE:
