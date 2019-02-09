@@ -5,7 +5,7 @@ import { updateHistory, updateText, sendMsg} from '../../redux/actions';
 import ChatHistory from './ChatHistory';
 import './ChatArea.css';
 
-const ChatArea = ({ selectedUser, history, updateText, sendMsg }) => {
+export const ChatArea = ({ selectedUser, history, updateText, sendMsg }) => {
   const messages = (history && history.messages) || [];
   const currentText = (history && history.currentText) || '';
   const userNameArray = selectedUser.toLowerCase().split('');

@@ -5,7 +5,7 @@ import UsersList from './components/usersList';
 import ChatArea from './components/chatArea';
 import {userLogin} from './redux/actions';
 
-class Pages extends React.Component {
+export class Pages extends React.Component {
   state = {
     userName: '',
   };
@@ -52,7 +52,7 @@ class Pages extends React.Component {
   }
 }
 
-const App = ({ userLoggedin, socketOpen, loginError, userLogin}) => {
+export const App = ({ userLoggedin, socketOpen, loginError, userLogin}) => {
   return (
     <div className="App">
       <div className="App-header">
@@ -68,12 +68,14 @@ const App = ({ userLoggedin, socketOpen, loginError, userLogin}) => {
   );
 }
 
+/* istanbul ignore next */
 const mapStateToProps = (state) => ({
   socketOpen: state.sockets.socketOpen,
   userLoggedin: state.users.userLoggedIn,
   loginError: state.users.loginError,
 });
 
+/* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => ({
   userLogin: (userName) => (dispatch(userLogin(userName))),
 });

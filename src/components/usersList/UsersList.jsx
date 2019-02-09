@@ -4,7 +4,7 @@ import { changeSelectedUser } from '../../redux/actions'
 import PropTypes from 'prop-types';
 import './UsersList.css';
 
-const UsersList = ({ usersList, selectedUser, changeSelectedUser}) => {
+export const UsersList = ({ usersList, selectedUser, changeSelectedUser}) => {
   const usersListWrapper = usersList.map((userName) => {
     const selected = userName === selectedUser;
     return (
