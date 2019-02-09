@@ -1,4 +1,4 @@
-import {userLoginSuccess, userLoginFail, usersUpdate} from '../redux/actions';
+import { userLoginSuccess, userLoginFail, usersUpdate, receiveMessage} from '../redux/actions';
 import types from '../redux/types';
 
 const serverActions = {
@@ -10,6 +10,9 @@ const serverActions = {
   },
   [types.USERS_UPDATE]: (dispatch, {usersList}) => {
     dispatch(usersUpdate(usersList));
+  },
+  [types.RCV_MSG]: (dispatch, payload) => {
+    dispatch(receiveMessage(payload));
   }
 };
 

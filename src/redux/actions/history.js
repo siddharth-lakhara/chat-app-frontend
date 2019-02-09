@@ -24,6 +24,11 @@ export const sendMsg = (selectedUser, currentText) => {
   };
 }
 
+export const receiveMessage = (payload) => ({
+  type: types.RCV_MSG,
+  payload,
+});
+
 export const usersUpdate = (newUsersList) => {
   return {
     type: types.USERS_UPDATE,
