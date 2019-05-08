@@ -1,6 +1,6 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import {App} from '../App';
+import { shallow } from 'enzyme';
+import { App } from '../../App';
 
 const props = {
   socketOpen: true,
@@ -9,7 +9,7 @@ const props = {
   userLogin: jest.fn(),
 };
 
-describe('Rendering App', ()=>{
+describe('Rendering App', () => {
   it('Socket is closed', () => {
     const newProps = {
       ...props,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Pages } from '../App';
+import { Pages } from '../../App';
 
 const props = {
   socketOpen: true,

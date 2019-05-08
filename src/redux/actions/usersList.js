@@ -1,32 +1,27 @@
-import types from "../types";
+import types from '../types';
 
-export const usersList = (newUserList) => ({
-  type: types.USERS_UPDATE,
-  payload: newUserList,
-});
-
-export const changeSelectedUser = (newSelectedUser) => ({
+export const changeSelectedUser = newSelectedUser => ({
   type: types.USER_CHANGE,
   payload: newSelectedUser,
 });
 
-export const userLogin = (userName) => ({
+export const userLogin = userName => ({
   type: types.USER_LOGIN,
   payload: {
     userName,
-  }
+  },
 });
 
-export const userLoginSuccess = (userName) => ({
+export const userLoginSuccess = userName => ({
   type: types.USER_LOGIN_SUCCESS,
   payload: {
     userName,
-  }
+  },
 });
 
-export const userLoginFail = (userName) => ({
+export const userLoginFail = userName => ({
   type: types.USER_LOGIN_FAIL,
   payload: {
     userName,
-  }
+  },
 });

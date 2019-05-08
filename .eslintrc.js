@@ -3,5 +3,6 @@ module.exports = {
     "env": {
       "jest": true,
       "browser": true
-    }
+    },
+    "parser": "babel-eslint",
 };
